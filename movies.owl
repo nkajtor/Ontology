@@ -1,0 +1,3565 @@
+@prefix : <http://www.movies.com/ontologies/movies.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.movies.com/ontologies/movies.owl> .
+
+<http://www.movies.com/ontologies/movies.owl> rdf:type owl:Ontology ;
+                                               rdfs:comment "A movie ontology that describes various movies based on their genres" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.movies.com/ontologies/movies.owl#hasActor
+:hasActor rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isActorOf ;
+          rdfs:domain :Movie ;
+          rdfs:range :MovieActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#hasActress
+:hasActress rdf:type owl:ObjectProperty ;
+            owl:inverseOf :isActressof ;
+            rdfs:domain :Movie ;
+            rdfs:range :MovieActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#hasCountryOfOrigin
+:hasCountryOfOrigin rdf:type owl:ObjectProperty .
+
+
+###  http://www.movies.com/ontologies/movies.owl#hasDirector
+:hasDirector rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isDirectorOf ;
+             rdfs:domain :Movie ;
+             rdfs:range :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#hasGenre
+:hasGenre rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isGenreOf ;
+          rdfs:domain :Movie ;
+          rdfs:range :MovieGenres .
+
+
+###  http://www.movies.com/ontologies/movies.owl#hasKidFriendlyRec
+:hasKidFriendlyRec rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:range :MovieValuePartition .
+
+
+###  http://www.movies.com/ontologies/movies.owl#hasRating
+:hasRating rdf:type owl:ObjectProperty ;
+           owl:inverseOf :isRatingOf ;
+           rdfs:domain :Movie ;
+           rdfs:range :MovieRating .
+
+
+###  http://www.movies.com/ontologies/movies.owl#hasRemake
+:hasRemake rdf:type owl:ObjectProperty ;
+           owl:inverseOf :isRemakeOf ;
+           rdfs:domain :Movie ;
+           rdfs:range :Remake .
+
+
+###  http://www.movies.com/ontologies/movies.owl#hasSequel
+:hasSequel rdf:type owl:ObjectProperty ;
+           owl:inverseOf :isSequelOf ;
+           rdfs:domain :Movie ;
+           rdfs:range :Sequels .
+
+
+###  http://www.movies.com/ontologies/movies.owl#hasSpinOff
+:hasSpinOff rdf:type owl:ObjectProperty ;
+            owl:inverseOf :isSpinOffOf ;
+            rdfs:domain :Movie ;
+            rdfs:range :Spinoffs .
+
+
+###  http://www.movies.com/ontologies/movies.owl#isActorOf
+:isActorOf rdf:type owl:ObjectProperty ;
+           rdfs:domain :MovieActors ;
+           rdfs:range :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#isActressof
+:isActressof rdf:type owl:ObjectProperty ;
+             rdfs:domain :MovieActresses ;
+             rdfs:range :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#isDirectorOf
+:isDirectorOf rdf:type owl:ObjectProperty ;
+              rdfs:domain :MovieDirectors ;
+              rdfs:range :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#isGenreOf
+:isGenreOf rdf:type owl:ObjectProperty ;
+           rdfs:domain :MovieGenres ;
+           rdfs:range :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#isRatingOf
+:isRatingOf rdf:type owl:ObjectProperty ;
+            rdfs:domain :MovieRating ;
+            rdfs:range :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#isRemakeOf
+:isRemakeOf rdf:type owl:ObjectProperty ;
+            rdfs:domain :Remake ;
+            rdfs:range :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#isSequelOf
+:isSequelOf rdf:type owl:ObjectProperty ;
+            rdfs:domain :Sequels ;
+            rdfs:range :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#isSpinOffOf
+:isSpinOffOf rdf:type owl:ObjectProperty ;
+             rdfs:domain :Spinoffs ;
+             rdfs:range :Movie .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.movies.com/ontologies/movies.owl#Action-Adventure
+:Action-Adventure rdf:type owl:Class ;
+                  rdfs:subClassOf :ActionGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Action-Comedy
+:Action-Comedy rdf:type owl:Class ;
+               rdfs:subClassOf :ActionGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Action-MartialArts
+:Action-MartialArts rdf:type owl:Class ;
+                    rdfs:subClassOf :ActionGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Action-Scifi
+:Action-Scifi rdf:type owl:Class ;
+              rdfs:subClassOf :ActionGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#ActionGenre
+:ActionGenre rdf:type owl:Class ;
+             rdfs:subClassOf :MovieGenres .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AdamDriver
+:AdamDriver rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AdultSupervisionRecommended
+:AdultSupervisionRecommended rdf:type owl:Class ;
+                             rdfs:subClassOf :MovieValuePartition .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AdultSupervisionRequired
+:AdultSupervisionRequired rdf:type owl:Class ;
+                          rdfs:subClassOf :MovieValuePartition .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Adventure-Action
+:Adventure-Action rdf:type owl:Class ;
+                  rdfs:subClassOf :AdventureGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Adventure-Comic
+:Adventure-Comic rdf:type owl:Class ;
+                 rdfs:subClassOf :AdventureGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Adventure-Scifi
+:Adventure-Scifi rdf:type owl:Class ;
+                 rdfs:subClassOf :AdventureGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AdventureGenre
+:AdventureGenre rdf:type owl:Class ;
+                rdfs:subClassOf :MovieGenres .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Aladdin
+:Aladdin rdf:type owl:Class ;
+         rdfs:subClassOf :Remake ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActor ;
+                           owl:someValuesFrom :WillSmith
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDirector ;
+                           owl:someValuesFrom :GuyRitchie
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :Animated-Adventure
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :Animated-Animation
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :Animated-Childrens-Film
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :Animated-Musical
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :Animated-Romance
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasKidFriendlyRec ;
+                           owl:someValuesFrom :KidFriendly
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasRating ;
+                           owl:someValuesFrom :Rated-PG
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasCountryOfOrigin ;
+                           owl:hasValue :America
+                         ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AlanRickman
+:AlanRickman rdf:type owl:Class ;
+             rdfs:subClassOf :VoiceActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AlbertBrooks
+:AlbertBrooks rdf:type owl:Class ;
+              rdfs:subClassOf :VoiceActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AliceInWonderland
+:AliceInWonderland rdf:type owl:Class ;
+                   rdfs:subClassOf :Remake ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasActor ;
+                                     owl:someValuesFrom :AlanRickman
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasActor ;
+                                     owl:someValuesFrom :JohnnyDepp
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasActress ;
+                                     owl:someValuesFrom :AnneHathaway
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasActress ;
+                                     owl:someValuesFrom :HelenaBonhamCarter
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasGenre ;
+                                     owl:someValuesFrom :Animated-Fantasy
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasGenre ;
+                                     owl:someValuesFrom :Animated-Literary
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasKidFriendlyRec ;
+                                     owl:someValuesFrom :KidFriendly
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasRating ;
+                                     owl:someValuesFrom :Rated-PG
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasCountryOfOrigin ;
+                                     owl:hasValue :America
+                                   ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AmandaPlummer
+:AmandaPlummer rdf:type owl:Class ;
+               rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AmberHeard
+:AmberHeard rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AmySchumer
+:AmySchumer rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AndrewStanton
+:AndrewStanton rdf:type owl:Class ;
+               rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Animated-Adventure
+:Animated-Adventure rdf:type owl:Class ;
+                    rdfs:subClassOf :AnimatedGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Animated-Animation
+:Animated-Animation rdf:type owl:Class ;
+                    rdfs:subClassOf :AnimatedGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Animated-Childrens-Film
+:Animated-Childrens-Film rdf:type owl:Class ;
+                         rdfs:subClassOf :AnimatedGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Animated-Fantasy
+:Animated-Fantasy rdf:type owl:Class ;
+                  rdfs:subClassOf :AnimatedGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Animated-Literary
+:Animated-Literary rdf:type owl:Class ;
+                   rdfs:subClassOf :AnimatedGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Animated-Musical
+:Animated-Musical rdf:type owl:Class ;
+                  rdfs:subClassOf :AnimatedGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Animated-Romance
+:Animated-Romance rdf:type owl:Class ;
+                  rdfs:subClassOf :AnimatedGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AnimatedGenre
+:AnimatedGenre rdf:type owl:Class ;
+               rdfs:subClassOf :MovieGenres .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AnnaSophiaRobb
+:AnnaSophiaRobb rdf:type owl:Class ;
+                rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AnneHathaway
+:AnneHathaway rdf:type owl:Class ;
+              rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#ArnoldSchwarzenegger
+:ArnoldSchwarzenegger rdf:type owl:Class ;
+                      rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#AtWorldsEnd
+:AtWorldsEnd rdf:type owl:Class ;
+             rdfs:subClassOf :PiratesOfTheCaribbeanSaga ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActor ;
+                               owl:someValuesFrom :JohnnyDepp
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActress ;
+                               owl:someValuesFrom :KieraKnightley
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasDirector ;
+                               owl:someValuesFrom :GoreVerbinski
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasGenre ;
+                               owl:someValuesFrom :Adventure-Action
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasKidFriendlyRec ;
+                               owl:someValuesFrom :AdultSupervisionRecommended
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasRating ;
+                               owl:someValuesFrom :Rated-PG-13
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasCountryOfOrigin ;
+                               owl:hasValue :America
+                             ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#BadBoys
+:BadBoys rdf:type owl:Class ;
+         rdfs:subClassOf :Originals ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActor ;
+                           owl:someValuesFrom :MartinLawrence
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActor ;
+                           owl:someValuesFrom :WillSmith
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActress ;
+                           owl:someValuesFrom :TeaLeoni
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDirector ;
+                           owl:someValuesFrom :MichaelBay
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :Action-Comedy
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasKidFriendlyRec ;
+                           owl:someValuesFrom :AdultSupervisionRequired
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasRating ;
+                           owl:someValuesFrom :Rated-R
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasCountryOfOrigin ;
+                           owl:hasValue :America
+                         ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#BenStiller
+:BenStiller rdf:type owl:Class ;
+            rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#BillHader
+:BillHader rdf:type owl:Class ;
+           rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#BillyZane
+:BillyZane rdf:type owl:Class ;
+           rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#BrieLarson
+:BrieLarson rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#BumbleBee
+:BumbleBee rdf:type owl:Class ;
+           rdfs:subClassOf :Spinoffs ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActor ;
+                             owl:someValuesFrom :JohnCena
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasDirector ;
+                             owl:someValuesFrom :MichaelBay
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasGenre ;
+                             owl:someValuesFrom :Action-Adventure
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasKidFriendlyRec ;
+                             owl:someValuesFrom :AdultSupervisionRecommended
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasRating ;
+                             owl:someValuesFrom :Rated-PG-13
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasCountryOfOrigin ;
+                             owl:hasValue :America
+                           ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#CarrieFisher
+:CarrieFisher rdf:type owl:Class ;
+              rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#CatherineOhara
+:CatherineOhara rdf:type owl:Class ;
+                rdfs:subClassOf :VoiceActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#CharlieAndTheChocolateFactory
+:CharlieAndTheChocolateFactory rdf:type owl:Class ;
+                               rdfs:subClassOf :Remake ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasActor ;
+                                                 owl:someValuesFrom :JohnnyDepp
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasActress ;
+                                                 owl:someValuesFrom :AnnaSophiaRobb
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasActress ;
+                                                 owl:someValuesFrom :HelenaBonhamCarter
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasActress ;
+                                                 owl:someValuesFrom :JuliaWinter
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasGenre ;
+                                                 owl:someValuesFrom :Adventure-Comic
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasGenre ;
+                                                 owl:someValuesFrom :Comedy-Humour
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasKidFriendlyRec ;
+                                                 owl:someValuesFrom :KidFriendly
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasRating ;
+                                                 owl:someValuesFrom :Rated-PG
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasCountryOfOrigin ;
+                                                 owl:hasValue :America
+                                               ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#ChrisBuck
+:ChrisBuck rdf:type owl:Class ;
+           rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#ChrisColumbus
+:ChrisColumbus rdf:type owl:Class ;
+               rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#ChristineTaylor
+:ChristineTaylor rdf:type owl:Class ;
+                 rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#ColinFarrell
+:ColinFarrell rdf:type owl:Class ;
+              rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Comedy-Buddy
+:Comedy-Buddy rdf:type owl:Class ;
+              rdfs:subClassOf :ComedyGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Comedy-Dark
+:Comedy-Dark rdf:type owl:Class ;
+             rdfs:subClassOf :ComedyGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Comedy-Humour
+:Comedy-Humour rdf:type owl:Class ;
+               rdfs:subClassOf :ComedyGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Comedy-Romance
+:Comedy-Romance rdf:type owl:Class ;
+                rdfs:subClassOf :ComedyGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#ComedyGenre
+:ComedyGenre rdf:type owl:Class ;
+             rdfs:subClassOf :MovieGenres .
+
+
+###  http://www.movies.com/ontologies/movies.owl#CorpseBride
+:CorpseBride rdf:type owl:Class ;
+             rdfs:subClassOf :Originals ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActor ;
+                               owl:someValuesFrom :DannyElfman
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActor ;
+                               owl:someValuesFrom :JohnnyDepp
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActress ;
+                               owl:someValuesFrom :EmilyWatson
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActress ;
+                               owl:someValuesFrom :HelenaBonhamCarter
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasGenre ;
+                               owl:someValuesFrom :Animated-Childrens-Film
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasGenre ;
+                               owl:someValuesFrom :Animated-Fantasy
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasGenre ;
+                               owl:someValuesFrom :Animated-Musical
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasKidFriendlyRec ;
+                               owl:someValuesFrom :KidFriendly
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasRating ;
+                               owl:someValuesFrom :Rated-PG
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasCountryOfOrigin ;
+                               owl:hasValue :America
+                             ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Country
+:Country rdf:type owl:Class .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DanielRadcliffe
+:DanielRadcliffe rdf:type owl:Class ;
+                 rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DaniellePanabaker
+:DaniellePanabaker rdf:type owl:Class ;
+                   rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DannyDeVito
+:DannyDeVito rdf:type owl:Class ;
+             rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DannyElfman
+:DannyElfman rdf:type owl:Class ;
+             rdfs:subClassOf :VoiceActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DannyMcBride
+:DannyMcBride rdf:type owl:Class ;
+              rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DavidCarradine
+:DavidCarradine rdf:type owl:Class ;
+                rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DavidGordonGreen
+:DavidGordonGreen rdf:type owl:Class ;
+                  rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DavidSlade
+:DavidSlade rdf:type owl:Class ;
+            rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DawnOfTheDead
+:DawnOfTheDead rdf:type owl:Class ;
+               rdfs:subClassOf :Remake ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasActor ;
+                                 owl:someValuesFrom :TomSavini
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasActress ;
+                                 owl:someValuesFrom :SarahPolley
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasDirector ;
+                                 owl:someValuesFrom :ZackSnyder
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasGenre ;
+                                 owl:someValuesFrom :Horror-Noir
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasGenre ;
+                                 owl:someValuesFrom :Horror-Thriller
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasKidFriendlyRec ;
+                                 owl:someValuesFrom :AdultSupervisionRequired
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasRating ;
+                                 owl:someValuesFrom :Rated-R
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasCountryOfOrigin ;
+                                 owl:hasValue :America
+                               ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DeadMansChest
+:DeadMansChest rdf:type owl:Class ;
+               rdfs:subClassOf :PiratesOfTheCaribbeanSaga ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasActor ;
+                                 owl:someValuesFrom :JohnnyDepp
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasActress ;
+                                 owl:someValuesFrom :KieraKnightley
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasDirector ;
+                                 owl:someValuesFrom :GoreVerbinski
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasGenre ;
+                                 owl:someValuesFrom :Adventure-Action
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasKidFriendlyRec ;
+                                 owl:someValuesFrom :AdultSupervisionRecommended
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasRating ;
+                                 owl:someValuesFrom :Rated-PG-13
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasCountryOfOrigin ;
+                                 owl:hasValue :America
+                               ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DeadMenTellNoTales
+:DeadMenTellNoTales rdf:type owl:Class ;
+                    rdfs:subClassOf :PiratesOfTheCaribbeanSaga ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasActor ;
+                                      owl:someValuesFrom :JohnnyDepp
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasActress ;
+                                      owl:someValuesFrom :KieraKnightley
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasDirector ;
+                                      owl:someValuesFrom :GoreVerbinski
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasGenre ;
+                                      owl:someValuesFrom :Adventure-Action
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasKidFriendlyRec ;
+                                      owl:someValuesFrom :AdultSupervisionRecommended
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasRating ;
+                                      owl:someValuesFrom :Rated-PG-13
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasCountryOfOrigin ;
+                                      owl:hasValue :America
+                                    ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#DebiDurst
+:DebiDurst rdf:type owl:Class ;
+           rdfs:subClassOf :VoiceActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Dumbo
+:Dumbo rdf:type owl:Class ;
+       rdfs:subClassOf :Remake ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasActor ;
+                         owl:someValuesFrom :ColinFarrell
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasActor ;
+                         owl:someValuesFrom :DannyDeVito
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasActress ;
+                         owl:someValuesFrom :EvaGreen
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasActress ;
+                         owl:someValuesFrom :NicoParker
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasGenre ;
+                         owl:someValuesFrom :Animated-Fantasy
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasKidFriendlyRec ;
+                         owl:someValuesFrom :KidFriendly
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasRating ;
+                         owl:someValuesFrom :Rated-PG
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasCountryOfOrigin ;
+                         owl:hasValue :America
+                       ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Eclipse
+:Eclipse rdf:type owl:Class ;
+         rdfs:subClassOf :TwilightSaga ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActor ;
+                           owl:someValuesFrom :RobertPattinson
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActress ;
+                           owl:someValuesFrom :KristenStewert
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDirector ;
+                           owl:someValuesFrom :DavidSlade
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :Romance-Drama
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasKidFriendlyRec ;
+                           owl:someValuesFrom :AdultSupervisionRecommended
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasRating ;
+                           owl:someValuesFrom :Rated-PG-13
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasCountryOfOrigin ;
+                           owl:hasValue :America
+                         ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#ElijahWood
+:ElijahWood rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EllenDegeneres
+:EllenDegeneres rdf:type owl:Class ;
+                rdfs:subClassOf :VoiceActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EmilyWatson
+:EmilyWatson rdf:type owl:Class ;
+             rdfs:subClassOf :VoiceActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EmmaWatson
+:EmmaWatson rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EvaGreen
+:EvaGreen rdf:type owl:Class ;
+          rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EwanMcGregor
+:EwanMcGregor rdf:type owl:Class ;
+              rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#FindingDory
+:FindingDory rdf:type owl:Class ;
+             rdfs:subClassOf :Sequels ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActor ;
+                               owl:someValuesFrom :AlbertBrooks
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActress ;
+                               owl:someValuesFrom :EllenDegeneres
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasDirector ;
+                               owl:someValuesFrom :AndrewStanton
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasGenre ;
+                               owl:someValuesFrom :Animated-Animation
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasGenre ;
+                               owl:someValuesFrom :Animated-Childrens-Film
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasKidFriendlyRec ;
+                               owl:someValuesFrom :KidFriendly
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasRating ;
+                               owl:someValuesFrom :Rated-PG
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasCountryOfOrigin ;
+                               owl:hasValue :America
+                             ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#FindingNemo
+:FindingNemo rdf:type owl:Class ;
+             rdfs:subClassOf :Originals ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActor ;
+                               owl:someValuesFrom :AlbertBrooks
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActress ;
+                               owl:someValuesFrom :EllenDegeneres
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasDirector ;
+                               owl:someValuesFrom :AndrewStanton
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasKidFriendlyRec ;
+                               owl:someValuesFrom :KidFriendly
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasRating ;
+                               owl:someValuesFrom :Rated-G
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasSequel ;
+                               owl:someValuesFrom :FindingDory
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasCountryOfOrigin ;
+                               owl:hasValue :America
+                             ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Frozen
+:Frozen rdf:type owl:Class ;
+        rdfs:subClassOf :Originals ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasActor ;
+                          owl:someValuesFrom :JoshGad
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasActress ;
+                          owl:someValuesFrom :IdinaMenzel
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasDirector ;
+                          owl:someValuesFrom :ChrisBuck
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasGenre ;
+                          owl:someValuesFrom :Animated-Childrens-Film
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasGenre ;
+                          owl:someValuesFrom :Animated-Fantasy
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasGenre ;
+                          owl:someValuesFrom :Animated-Musical
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasKidFriendlyRec ;
+                          owl:someValuesFrom :KidFriendly
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasRating ;
+                          owl:someValuesFrom :Rated-PG
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasSequel ;
+                          owl:someValuesFrom :FrozenII
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasCountryOfOrigin ;
+                          owl:hasValue :America
+                        ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#FrozenII
+:FrozenII rdf:type owl:Class ;
+          rdfs:subClassOf :Sequels ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasActor ;
+                            owl:someValuesFrom :JoshGad
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasActress ;
+                            owl:someValuesFrom :IdinaMenzel
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasDirector ;
+                            owl:someValuesFrom :ChrisBuck
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasGenre ;
+                            owl:someValuesFrom :Animated-Childrens-Film
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasGenre ;
+                            owl:someValuesFrom :Animated-Fantasy
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasGenre ;
+                            owl:someValuesFrom :Animated-Musical
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasKidFriendlyRec ;
+                            owl:someValuesFrom :KidFriendly
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasRating ;
+                            owl:someValuesFrom :Rated-PG
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasCountryOfOrigin ;
+                            owl:hasValue :America
+                          ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#GeorgeLucas
+:GeorgeLucas rdf:type owl:Class ;
+             rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#GhostOfMars
+:GhostOfMars rdf:type owl:Class ;
+             rdfs:subClassOf :Originals ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActor ;
+                               owl:someValuesFrom :IceCube
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActor ;
+                               owl:someValuesFrom :JasonStatham
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActress ;
+                               owl:someValuesFrom :JoannaCassidy
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasDirector ;
+                               owl:someValuesFrom :JohnCarpenter
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasGenre ;
+                               owl:someValuesFrom :Horror-Action
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasKidFriendlyRec ;
+                               owl:someValuesFrom :AdultSupervisionRequired
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasRating ;
+                               owl:someValuesFrom :Rated-R
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasCountryOfOrigin ;
+                               owl:hasValue :America
+                             ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#GloriaStuart
+:GloriaStuart rdf:type owl:Class ;
+              rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#GoreVerbinski
+:GoreVerbinski rdf:type owl:Class ;
+               rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#GuyRitchie
+:GuyRitchie rdf:type owl:Class ;
+            rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HarryPotterAndTheChamberOfSecrets
+:HarryPotterAndTheChamberOfSecrets rdf:type owl:Class ;
+                                   rdfs:subClassOf :HarryPotterSaga ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasActor ;
+                                                     owl:someValuesFrom :DanielRadcliffe
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasActress ;
+                                                     owl:someValuesFrom :EmmaWatson
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasDirector ;
+                                                     owl:someValuesFrom :ChrisColumbus
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasGenre ;
+                                                     owl:someValuesFrom :Adventure-Comic
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasGenre ;
+                                                     owl:someValuesFrom :Animated-Fantasy
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasKidFriendlyRec ;
+                                                     owl:someValuesFrom :KidFriendly
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasRating ;
+                                                     owl:someValuesFrom :Rated-PG
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasCountryOfOrigin ;
+                                                     owl:hasValue :England
+                                                   ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HarryPotterAndTheGobletOfFire
+:HarryPotterAndTheGobletOfFire rdf:type owl:Class ;
+                               rdfs:subClassOf :HarryPotterSaga ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasActor ;
+                                                 owl:someValuesFrom :DanielRadcliffe
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasActress ;
+                                                 owl:someValuesFrom :EmmaWatson
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasDirector ;
+                                                 owl:someValuesFrom :ChrisColumbus
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasGenre ;
+                                                 owl:someValuesFrom :Adventure-Comic
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasGenre ;
+                                                 owl:someValuesFrom :Animated-Fantasy
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasKidFriendlyRec ;
+                                                 owl:someValuesFrom :AdultSupervisionRecommended
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasRating ;
+                                                 owl:someValuesFrom :Rated-PG-13
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasCountryOfOrigin ;
+                                                 owl:hasValue :England
+                                               ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HarryPotterAndTheHalfBloodPrince
+:HarryPotterAndTheHalfBloodPrince rdf:type owl:Class ;
+                                  rdfs:subClassOf :HarryPotterSaga ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasActor ;
+                                                    owl:someValuesFrom :DanielRadcliffe
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasActress ;
+                                                    owl:someValuesFrom :EmmaWatson
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasDirector ;
+                                                    owl:someValuesFrom :ChrisColumbus
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasGenre ;
+                                                    owl:someValuesFrom :Adventure-Comic
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasGenre ;
+                                                    owl:someValuesFrom :Animated-Fantasy
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasKidFriendlyRec ;
+                                                    owl:someValuesFrom :AdultSupervisionRecommended
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasRating ;
+                                                    owl:someValuesFrom :Rated-PG-13
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasCountryOfOrigin ;
+                                                    owl:hasValue :England
+                                                  ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HarryPotterAndTheOrderOfThePhoenix
+:HarryPotterAndTheOrderOfThePhoenix rdf:type owl:Class ;
+                                    rdfs:subClassOf :HarryPotterSaga ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasActor ;
+                                                      owl:someValuesFrom :DanielRadcliffe
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasActress ;
+                                                      owl:someValuesFrom :EmmaWatson
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasDirector ;
+                                                      owl:someValuesFrom :ChrisColumbus
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasGenre ;
+                                                      owl:someValuesFrom :Adventure-Comic
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasGenre ;
+                                                      owl:someValuesFrom :Animated-Fantasy
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasKidFriendlyRec ;
+                                                      owl:someValuesFrom :AdultSupervisionRecommended
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasRating ;
+                                                      owl:someValuesFrom :Rated-PG-13
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasCountryOfOrigin ;
+                                                      owl:hasValue :England
+                                                    ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HarryPotterAndThePhilosophersStone
+:HarryPotterAndThePhilosophersStone rdf:type owl:Class ;
+                                    rdfs:subClassOf :HarryPotterSaga ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasActor ;
+                                                      owl:someValuesFrom :DanielRadcliffe
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasActress ;
+                                                      owl:someValuesFrom :EmmaWatson
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasDirector ;
+                                                      owl:someValuesFrom :ChrisColumbus
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasGenre ;
+                                                      owl:someValuesFrom :Adventure-Comic
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasGenre ;
+                                                      owl:someValuesFrom :Animated-Fantasy
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasKidFriendlyRec ;
+                                                      owl:someValuesFrom :AdultSupervisionRecommended
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasRating ;
+                                                      owl:someValuesFrom :Rated-PG-13
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasCountryOfOrigin ;
+                                                      owl:hasValue :England
+                                                    ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HarryPotterAndThePrisonerOfAzkaban
+:HarryPotterAndThePrisonerOfAzkaban rdf:type owl:Class ;
+                                    rdfs:subClassOf :HarryPotterSaga ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasActor ;
+                                                      owl:someValuesFrom :DanielRadcliffe
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasActress ;
+                                                      owl:someValuesFrom :EmmaWatson
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasDirector ;
+                                                      owl:someValuesFrom :ChrisColumbus
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasGenre ;
+                                                      owl:someValuesFrom :Adventure-Comic
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasGenre ;
+                                                      owl:someValuesFrom :Animated-Fantasy
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasKidFriendlyRec ;
+                                                      owl:someValuesFrom :AdultSupervisionRecommended
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasRating ;
+                                                      owl:someValuesFrom :Rated-PG-13
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hasCountryOfOrigin ;
+                                                      owl:hasValue :England
+                                                    ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HarryPotterSaga
+:HarryPotterSaga rdf:type owl:Class ;
+                 rdfs:subClassOf :Sagas .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HelenaBonhamCarter
+:HelenaBonhamCarter rdf:type owl:Class ;
+                    rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HenrySelick
+:HenrySelick rdf:type owl:Class ;
+             rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Horror-Action
+:Horror-Action rdf:type owl:Class ;
+               rdfs:subClassOf :HorrorGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Horror-Noir
+:Horror-Noir rdf:type owl:Class ;
+             rdfs:subClassOf :HorrorGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Horror-Psychological
+:Horror-Psychological rdf:type owl:Class ;
+                      rdfs:subClassOf :HorrorGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Horror-Scifi
+:Horror-Scifi rdf:type owl:Class ;
+              rdfs:subClassOf :HorrorGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Horror-Thriller
+:Horror-Thriller rdf:type owl:Class ;
+                 rdfs:subClassOf :HorrorGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HorrorGenre
+:HorrorGenre rdf:type owl:Class ;
+             rdfs:subClassOf :MovieGenres .
+
+
+###  http://www.movies.com/ontologies/movies.owl#IceCube
+:IceCube rdf:type owl:Class ;
+         rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#IdinaMenzel
+:IdinaMenzel rdf:type owl:Class ;
+             rdfs:subClassOf :VoiceActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JamesCameron
+:JamesCameron rdf:type owl:Class ;
+              rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JamesFranco
+:JamesFranco rdf:type owl:Class ;
+             rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JaredHarris
+:JaredHarris rdf:type owl:Class ;
+             rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JasonStatham
+:JasonStatham rdf:type owl:Class ;
+              rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JoannaCassidy
+:JoannaCassidy rdf:type owl:Class ;
+               rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JohnCarpenter
+:JohnCarpenter rdf:type owl:Class ;
+               rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JohnCena
+:JohnCena rdf:type owl:Class ;
+          rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JohnTravolta
+:JohnTravolta rdf:type owl:Class ;
+              rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JohnnyDepp
+:JohnnyDepp rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JoshGad
+:JoshGad rdf:type owl:Class ;
+         rdfs:subClassOf :VoiceActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JuddApatow
+:JuddApatow rdf:type owl:Class ;
+            rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#JuliaWinter
+:JuliaWinter rdf:type owl:Class ;
+             rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#KateWinslet
+:KateWinslet rdf:type owl:Class ;
+             rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#KidFriendly
+:KidFriendly rdf:type owl:Class ;
+             rdfs:subClassOf :MovieValuePartition .
+
+
+###  http://www.movies.com/ontologies/movies.owl#KieraKnightley
+:KieraKnightley rdf:type owl:Class ;
+                rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#KillBill1
+:KillBill1 rdf:type owl:Class ;
+           rdfs:subClassOf :Originals ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActor ;
+                             owl:someValuesFrom :DavidCarradine
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActress ;
+                             owl:someValuesFrom :LucyLiu
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActress ;
+                             owl:someValuesFrom :UmaThurman
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasDirector ;
+                             owl:someValuesFrom :QuentinTarantino
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasGenre ;
+                             owl:someValuesFrom :Action-MartialArts
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasKidFriendlyRec ;
+                             owl:someValuesFrom :AdultSupervisionRequired
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasRating ;
+                             owl:someValuesFrom :Rated-R
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasSequel ;
+                             owl:someValuesFrom :KillBill2
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasCountryOfOrigin ;
+                             owl:hasValue :America
+                           ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#KillBill2
+:KillBill2 rdf:type owl:Class ;
+           rdfs:subClassOf :Sequels ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActor ;
+                             owl:someValuesFrom :DavidCarradine
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActress ;
+                             owl:someValuesFrom :LucyLiu
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActress ;
+                             owl:someValuesFrom :UmaThurman
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasDirector ;
+                             owl:someValuesFrom :QuentinTarantino
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasGenre ;
+                             owl:someValuesFrom :Action-MartialArts
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasKidFriendlyRec ;
+                             owl:someValuesFrom :AdultSupervisionRequired
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasRating ;
+                             owl:someValuesFrom :Rated-R
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasCountryOfOrigin ;
+                             owl:hasValue :America
+                           ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#KristenStewert
+:KristenStewert rdf:type owl:Class ;
+                rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#KurtRussel
+:KurtRussel rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#LeonardoDiCaprio
+:LeonardoDiCaprio rdf:type owl:Class ;
+                  rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#LindaHamilton
+:LindaHamilton rdf:type owl:Class ;
+               rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#LiveActors
+:LiveActors rdf:type owl:Class ;
+            rdfs:subClassOf :MovieActors ;
+            owl:disjointWith :VoiceActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#LiveActresses
+:LiveActresses rdf:type owl:Class ;
+               rdfs:subClassOf :MovieActresses ;
+               owl:disjointWith :VoiceActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#LucyLiu
+:LucyLiu rdf:type owl:Class ;
+         rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MamieGummer
+:MamieGummer rdf:type owl:Class ;
+             rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MarkWahlberg
+:MarkWahlberg rdf:type owl:Class ;
+              rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MartinLawrence
+:MartinLawrence rdf:type owl:Class ;
+                rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MaryElizabethWinstead
+:MaryElizabethWinstead rdf:type owl:Class ;
+                       rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MeganFox
+:MeganFox rdf:type owl:Class ;
+          rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MichaelBay
+:MichaelBay rdf:type owl:Class ;
+            rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MilaJovovich
+:MilaJovovich rdf:type owl:Class ;
+              rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Movie
+:Movie rdf:type owl:Class ;
+       rdfs:subClassOf owl:Thing .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MovieActors
+:MovieActors rdf:type owl:Class .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MovieActresses
+:MovieActresses rdf:type owl:Class .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MovieDirectors
+:MovieDirectors rdf:type owl:Class .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MovieGenres
+:MovieGenres rdf:type owl:Class .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MovieRating
+:MovieRating rdf:type owl:Class .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MovieValuePartition
+:MovieValuePartition rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Class ;
+                                           owl:unionOf ( :AdultSupervisionRecommended
+                                                         :AdultSupervisionRequired
+                                                         :KidFriendly
+                                                       )
+                                         ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#MysteryGenre
+:MysteryGenre rdf:type owl:Class ;
+              rdfs:subClassOf :MovieGenres .
+
+
+###  http://www.movies.com/ontologies/movies.owl#NewMoon
+:NewMoon rdf:type owl:Class ;
+         rdfs:subClassOf :TwilightSaga ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActor ;
+                           owl:someValuesFrom :RobertPattinson
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActress ;
+                           owl:someValuesFrom :KristenStewert
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDirector ;
+                           owl:someValuesFrom :DavidSlade
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :Romance-Drama
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasKidFriendlyRec ;
+                           owl:someValuesFrom :AdultSupervisionRecommended
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasRating ;
+                           owl:someValuesFrom :Rated-PG-13
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasCountryOfOrigin ;
+                           owl:hasValue :America
+                         ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#NicoParker
+:NicoParker rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#NicolaPeltz
+:NicolaPeltz rdf:type owl:Class ;
+             rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#OnStrangerTides
+:OnStrangerTides rdf:type owl:Class ;
+                 rdfs:subClassOf :PiratesOfTheCaribbeanSaga ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasActor ;
+                                   owl:someValuesFrom :JohnnyDepp
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasActress ;
+                                   owl:someValuesFrom :PenelopeCruz
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasDirector ;
+                                   owl:someValuesFrom :GoreVerbinski
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasGenre ;
+                                   owl:someValuesFrom :Adventure-Action
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasKidFriendlyRec ;
+                                   owl:someValuesFrom :AdultSupervisionRecommended
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasRating ;
+                                   owl:someValuesFrom :Rated-PG-13
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasCountryOfOrigin ;
+                                   owl:hasValue :America
+                                 ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Originals
+:Originals rdf:type owl:Class ;
+           rdfs:subClassOf :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#OwenWilson
+:OwenWilson rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#PenelopeCruz
+:PenelopeCruz rdf:type owl:Class ;
+              rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#PeterJackson
+:PeterJackson rdf:type owl:Class ;
+              rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#PineappleExpress
+:PineappleExpress rdf:type owl:Class ;
+                  rdfs:subClassOf :Originals ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasActor ;
+                                    owl:someValuesFrom :DannyMcBride
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasActor ;
+                                    owl:someValuesFrom :JamesFranco
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasActor ;
+                                    owl:someValuesFrom :SethRogan
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasActress ;
+                                    owl:someValuesFrom :AmberHeard
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasActress ;
+                                    owl:someValuesFrom :RosiePerez
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasDirector ;
+                                    owl:someValuesFrom :DavidGordonGreen
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasGenre ;
+                                    owl:someValuesFrom :Action-Comedy
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasGenre ;
+                                    owl:someValuesFrom :Comedy-Buddy
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasKidFriendlyRec ;
+                                    owl:someValuesFrom :AdultSupervisionRequired
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasRating ;
+                                    owl:someValuesFrom :Rated-R
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasCountryOfOrigin ;
+                                    owl:hasValue :America
+                                  ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#PiratesOfTheCaribbeanSaga
+:PiratesOfTheCaribbeanSaga rdf:type owl:Class ;
+                           rdfs:subClassOf :Sagas .
+
+
+###  http://www.movies.com/ontologies/movies.owl#PulpFiction
+:PulpFiction rdf:type owl:Class ;
+             rdfs:subClassOf :Originals ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActor ;
+                               owl:someValuesFrom :JohnTravolta
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActor ;
+                               owl:someValuesFrom :SamuelJackson
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActress ;
+                               owl:someValuesFrom :AmandaPlummer
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActress ;
+                               owl:someValuesFrom :UmaThurman
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasDirector ;
+                               owl:someValuesFrom :QuentinTarantino
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasGenre ;
+                               owl:someValuesFrom :Comedy-Dark
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasKidFriendlyRec ;
+                               owl:someValuesFrom :AdultSupervisionRequired
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasRating ;
+                               owl:someValuesFrom :Rated-R
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasCountryOfOrigin ;
+                               owl:hasValue :America
+                             ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#QuentinTarantino
+:QuentinTarantino rdf:type owl:Class ;
+                  rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#RachaelTaylor
+:RachaelTaylor rdf:type owl:Class ;
+               rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Rated-E
+:Rated-E rdf:type owl:Class ;
+         rdfs:subClassOf :MovieRating .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Rated-G
+:Rated-G rdf:type owl:Class ;
+         rdfs:subClassOf :MovieRating .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Rated-PG
+:Rated-PG rdf:type owl:Class ;
+          rdfs:subClassOf :MovieRating .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Rated-PG-13
+:Rated-PG-13 rdf:type owl:Class ;
+             rdfs:subClassOf :MovieRating .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Rated-R
+:Rated-R rdf:type owl:Class ;
+         rdfs:subClassOf :MovieRating .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Remake
+:Remake rdf:type owl:Class ;
+        rdfs:subClassOf :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#RobertPattinson
+:RobertPattinson rdf:type owl:Class ;
+                 rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Romance-Comedy
+:Romance-Comedy rdf:type owl:Class ;
+                rdfs:subClassOf :RomanceGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Romance-Disaster
+:Romance-Disaster rdf:type owl:Class ;
+                  rdfs:subClassOf :RomanceGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Romance-Drama
+:Romance-Drama rdf:type owl:Class ;
+               rdfs:subClassOf :RomanceGenre .
+
+
+###  http://www.movies.com/ontologies/movies.owl#RomanceGenre
+:RomanceGenre rdf:type owl:Class ;
+              rdfs:subClassOf :MovieGenres .
+
+
+###  http://www.movies.com/ontologies/movies.owl#RosieHuntington
+:RosieHuntington rdf:type owl:Class ;
+                 rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#RosiePerez
+:RosiePerez rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Sagas
+:Sagas rdf:type owl:Class ;
+       rdfs:subClassOf :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#SamuelJackson
+:SamuelJackson rdf:type owl:Class ;
+               rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#SarahPolley
+:SarahPolley rdf:type owl:Class ;
+             rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Sci-FiGenre
+:Sci-FiGenre rdf:type owl:Class ;
+             rdfs:subClassOf :MovieGenres .
+
+
+###  http://www.movies.com/ontologies/movies.owl#SelaWard
+:SelaWard rdf:type owl:Class ;
+          rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Sequels
+:Sequels rdf:type owl:Class ;
+         rdfs:subClassOf :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#SethRogan
+:SethRogan rdf:type owl:Class ;
+           rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#ShiaLaBeouf
+:ShiaLaBeouf rdf:type owl:Class ;
+             rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Spinoffs
+:Spinoffs rdf:type owl:Class ;
+          rdfs:subClassOf :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#StarWarsSaga
+:StarWarsSaga rdf:type owl:Class ;
+              rdfs:subClassOf :Sagas .
+
+
+###  http://www.movies.com/ontologies/movies.owl#StevenSpielberg
+:StevenSpielberg rdf:type owl:Class ;
+                 rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TeaLeoni
+:TeaLeoni rdf:type owl:Class ;
+          rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TerminaterSalvation
+:TerminaterSalvation rdf:type owl:Class ;
+                     rdfs:subClassOf :TheTerminatorSaga ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasActor ;
+                                       owl:someValuesFrom :ArnoldSchwarzenegger
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasDirector ;
+                                       owl:someValuesFrom :JamesCameron
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasGenre ;
+                                       owl:someValuesFrom :Action-Scifi
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasKidFriendlyRec ;
+                                       owl:someValuesFrom :AdultSupervisionRequired
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasRating ;
+                                       owl:someValuesFrom :Rated-R
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasCountryOfOrigin ;
+                                       owl:hasValue :America
+                                     ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TerminatorDarkFate
+:TerminatorDarkFate rdf:type owl:Class ;
+                    rdfs:subClassOf :TheTerminatorSaga ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasActor ;
+                                      owl:someValuesFrom :ArnoldSchwarzenegger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasActress ;
+                                      owl:someValuesFrom :LindaHamilton
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasDirector ;
+                                      owl:someValuesFrom :JamesCameron
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasGenre ;
+                                      owl:someValuesFrom :Action-Scifi
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasKidFriendlyRec ;
+                                      owl:someValuesFrom :AdultSupervisionRequired
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasRating ;
+                                      owl:someValuesFrom :Rated-R
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasCountryOfOrigin ;
+                                      owl:hasValue :America
+                                    ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TerminatorGenisys
+:TerminatorGenisys rdf:type owl:Class ;
+                   rdfs:subClassOf :TheTerminatorSaga ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasActor ;
+                                     owl:someValuesFrom :ArnoldSchwarzenegger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasDirector ;
+                                     owl:someValuesFrom :JamesCameron
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasGenre ;
+                                     owl:someValuesFrom :Action-Scifi
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasKidFriendlyRec ;
+                                     owl:someValuesFrom :AdultSupervisionRecommended
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasRating ;
+                                     owl:someValuesFrom :Rated-PG-13
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasCountryOfOrigin ;
+                                     owl:hasValue :America
+                                   ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheCurseOfTheBlackPearl
+:TheCurseOfTheBlackPearl rdf:type owl:Class ;
+                         rdfs:subClassOf :PiratesOfTheCaribbeanSaga ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasActor ;
+                                           owl:someValuesFrom :JohnnyDepp
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasActress ;
+                                           owl:someValuesFrom :KieraKnightley
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasDirector ;
+                                           owl:someValuesFrom :GoreVerbinski
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasGenre ;
+                                           owl:someValuesFrom :Adventure-Action
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasKidFriendlyRec ;
+                                           owl:someValuesFrom :AdultSupervisionRecommended
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasRating ;
+                                           owl:someValuesFrom :Rated-PG-13
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasCountryOfOrigin ;
+                                           owl:hasValue :America
+                                         ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheFellowShipOfTheRing
+:TheFellowShipOfTheRing rdf:type owl:Class ;
+                        rdfs:subClassOf :TheLordOfTheRings ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasActor ;
+                                          owl:someValuesFrom :ElijahWood
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasDirector ;
+                                          owl:someValuesFrom :PeterJackson
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasGenre ;
+                                          owl:someValuesFrom :Adventure-Action
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasKidFriendlyRec ;
+                                          owl:someValuesFrom :AdultSupervisionRecommended
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasRating ;
+                                          owl:someValuesFrom :Rated-PG-13
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasCountryOfOrigin ;
+                                          owl:hasValue :America
+                                        ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheLordOfTheRings
+:TheLordOfTheRings rdf:type owl:Class ;
+                   rdfs:subClassOf :Trilogies .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheNightmareBeforeChristmas
+:TheNightmareBeforeChristmas rdf:type owl:Class ;
+                             rdfs:subClassOf :Originals ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasActor ;
+                                               owl:someValuesFrom :DannyElfman
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasActress ;
+                                               owl:someValuesFrom :CatherineOhara
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasActress ;
+                                               owl:someValuesFrom :DebiDurst
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasDirector ;
+                                               owl:someValuesFrom :HenrySelick
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasGenre ;
+                                               owl:someValuesFrom :Animated-Childrens-Film
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasGenre ;
+                                               owl:someValuesFrom :Animated-Fantasy
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasGenre ;
+                                               owl:someValuesFrom :Animated-Musical
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasKidFriendlyRec ;
+                                               owl:someValuesFrom :KidFriendly
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasRating ;
+                                               owl:someValuesFrom :Rated-PG
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasCountryOfOrigin ;
+                                               owl:hasValue :America
+                                             ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheReturnOfTheKing
+:TheReturnOfTheKing rdf:type owl:Class ;
+                    rdfs:subClassOf :TheLordOfTheRings ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasActor ;
+                                      owl:someValuesFrom :ElijahWood
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasDirector ;
+                                      owl:someValuesFrom :PeterJackson
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasGenre ;
+                                      owl:someValuesFrom :Adventure-Action
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasKidFriendlyRec ;
+                                      owl:someValuesFrom :AdultSupervisionRecommended
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasRating ;
+                                      owl:someValuesFrom :Rated-PG-13
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasCountryOfOrigin ;
+                                      owl:hasValue :America
+                                    ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheTerminator1984
+:TheTerminator1984 rdf:type owl:Class ;
+                   rdfs:subClassOf :TheTerminatorSaga ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasActor ;
+                                     owl:someValuesFrom :ArnoldSchwarzenegger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasActress ;
+                                     owl:someValuesFrom :LindaHamilton
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasDirector ;
+                                     owl:someValuesFrom :JamesCameron
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasGenre ;
+                                     owl:someValuesFrom :Action-Scifi
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasKidFriendlyRec ;
+                                     owl:someValuesFrom :AdultSupervisionRequired
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasRating ;
+                                     owl:someValuesFrom :Rated-R
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasCountryOfOrigin ;
+                                     owl:hasValue :America
+                                   ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheTerminatorSaga
+:TheTerminatorSaga rdf:type owl:Class ;
+                   rdfs:subClassOf :Sagas .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheThing
+:TheThing rdf:type owl:Class ;
+          rdfs:subClassOf :Originals ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasActor ;
+                            owl:someValuesFrom :KurtRussel
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasActor ;
+                            owl:someValuesFrom :WilfordBrimley
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasActress ;
+                            owl:someValuesFrom :MaryElizabethWinstead
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasActress ;
+                            owl:someValuesFrom :SelaWard
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasDirector ;
+                            owl:someValuesFrom :JohnCarpenter
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasGenre ;
+                            owl:someValuesFrom :Horror-Scifi
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasGenre ;
+                            owl:someValuesFrom :MysteryGenre
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasGenre ;
+                            owl:someValuesFrom :Sci-FiGenre
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasGenre ;
+                            owl:someValuesFrom :ThrillerGenre
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasKidFriendlyRec ;
+                            owl:someValuesFrom :AdultSupervisionRequired
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasRating ;
+                            owl:someValuesFrom :Rated-R
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasCountryOfOrigin ;
+                            owl:hasValue :America
+                          ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheTwoTowers
+:TheTwoTowers rdf:type owl:Class ;
+              rdfs:subClassOf :TheLordOfTheRings ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasActor ;
+                                owl:someValuesFrom :ElijahWood
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasDirector ;
+                                owl:someValuesFrom :PeterJackson
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasGenre ;
+                                owl:someValuesFrom :Adventure-Action
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasKidFriendlyRec ;
+                                owl:someValuesFrom :AdultSupervisionRecommended
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasRating ;
+                                owl:someValuesFrom :Rated-PG-13
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasCountryOfOrigin ;
+                                owl:hasValue :America
+                              ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheWard
+:TheWard rdf:type owl:Class ;
+         rdfs:subClassOf :Originals ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActor ;
+                           owl:someValuesFrom :JaredHarris
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActress ;
+                           owl:someValuesFrom :AmberHeard
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActress ;
+                           owl:someValuesFrom :DaniellePanabaker
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActress ;
+                           owl:someValuesFrom :MamieGummer
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDirector ;
+                           owl:someValuesFrom :JohnCarpenter
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :Horror-Psychological
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :ThrillerGenre
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasKidFriendlyRec ;
+                           owl:someValuesFrom :AdultSupervisionRequired
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasRating ;
+                           owl:someValuesFrom :Rated-R
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasCountryOfOrigin ;
+                           owl:hasValue :America
+                         ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#ThrillerGenre
+:ThrillerGenre rdf:type owl:Class ;
+               rdfs:subClassOf :MovieGenres .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Titanic
+:Titanic rdf:type owl:Class ;
+         rdfs:subClassOf :Originals ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActor ;
+                           owl:someValuesFrom :BillyZane
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActor ;
+                           owl:someValuesFrom :LeonardoDiCaprio
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActress ;
+                           owl:someValuesFrom :GloriaStuart
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActress ;
+                           owl:someValuesFrom :KateWinslet
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDirector ;
+                           owl:someValuesFrom :JamesCameron
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :Romance-Disaster
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGenre ;
+                           owl:someValuesFrom :Romance-Drama
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasKidFriendlyRec ;
+                           owl:someValuesFrom :AdultSupervisionRecommended
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasRating ;
+                           owl:someValuesFrom :Rated-PG-13
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasCountryOfOrigin ;
+                           owl:hasValue :America
+                         ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TomSavini
+:TomSavini rdf:type owl:Class ;
+           rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Trainwreck
+:Trainwreck rdf:type owl:Class ;
+            rdfs:subClassOf :Originals ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasActor ;
+                              owl:someValuesFrom :BillHader
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasActor ;
+                              owl:someValuesFrom :JohnCena
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasActress ;
+                              owl:someValuesFrom :AmySchumer
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasActress ;
+                              owl:someValuesFrom :BrieLarson
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasDirector ;
+                              owl:someValuesFrom :JuddApatow
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasGenre ;
+                              owl:someValuesFrom :Romance-Comedy
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasGenre ;
+                              owl:someValuesFrom :Romance-Drama
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasKidFriendlyRec ;
+                              owl:someValuesFrom :AdultSupervisionRequired
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasRating ;
+                              owl:someValuesFrom :Rated-R
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasCountryOfOrigin ;
+                              owl:hasValue :America
+                            ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Transformers
+:Transformers rdf:type owl:Class ;
+              rdfs:subClassOf :TransformersSaga ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasActor ;
+                                owl:someValuesFrom :ShiaLaBeouf
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasActress ;
+                                owl:someValuesFrom :MeganFox
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasActress ;
+                                owl:someValuesFrom :RachaelTaylor
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasDirector ;
+                                owl:someValuesFrom :MichaelBay
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasGenre ;
+                                owl:someValuesFrom :Action-Scifi
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasKidFriendlyRec ;
+                                owl:someValuesFrom :AdultSupervisionRecommended
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasRating ;
+                                owl:someValuesFrom :Rated-PG-13
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasSpinOff ;
+                                owl:someValuesFrom :BumbleBee
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasCountryOfOrigin ;
+                                owl:hasValue :America
+                              ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TransformersSaga
+:TransformersSaga rdf:type owl:Class ;
+                  rdfs:subClassOf :Sagas .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Trilogies
+:Trilogies rdf:type owl:Class ;
+           rdfs:subClassOf :Movie .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TwilightSaga
+:TwilightSaga rdf:type owl:Class ;
+              rdfs:subClassOf :Sagas .
+
+
+###  http://www.movies.com/ontologies/movies.owl#UmaThurman
+:UmaThurman rdf:type owl:Class ;
+            rdfs:subClassOf :LiveActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#VoiceActors
+:VoiceActors rdf:type owl:Class ;
+             rdfs:subClassOf :MovieActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#VoiceActresses
+:VoiceActresses rdf:type owl:Class ;
+                rdfs:subClassOf :MovieActresses .
+
+
+###  http://www.movies.com/ontologies/movies.owl#WilfordBrimley
+:WilfordBrimley rdf:type owl:Class ;
+                rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#WillSmith
+:WillSmith rdf:type owl:Class ;
+           rdfs:subClassOf :LiveActors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#ZackSnyder
+:ZackSnyder rdf:type owl:Class ;
+            rdfs:subClassOf :MovieDirectors .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Zoolander
+:Zoolander rdf:type owl:Class ;
+           rdfs:subClassOf :Originals ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActor ;
+                             owl:someValuesFrom :BillyZane
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActor ;
+                             owl:someValuesFrom :OwenWilson
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActress ;
+                             owl:someValuesFrom :ChristineTaylor
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActress ;
+                             owl:someValuesFrom :MilaJovovich
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasDirector ;
+                             owl:someValuesFrom :BenStiller
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasGenre ;
+                             owl:someValuesFrom :Comedy-Humour
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasKidFriendlyRec ;
+                             owl:someValuesFrom :AdultSupervisionRecommended
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasRating ;
+                             owl:someValuesFrom :Rated-PG-13
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasSequel ;
+                             owl:someValuesFrom :Zoolander2
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasCountryOfOrigin ;
+                             owl:hasValue :America
+                           ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Zoolander2
+:Zoolander2 rdf:type owl:Class ;
+            rdfs:subClassOf :Sequels ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasActor ;
+                              owl:someValuesFrom :BillyZane
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasActor ;
+                              owl:someValuesFrom :OwenWilson
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasActress ;
+                              owl:someValuesFrom :ChristineTaylor
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasActress ;
+                              owl:someValuesFrom :MilaJovovich
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasDirector ;
+                              owl:someValuesFrom :BenStiller
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasGenre ;
+                              owl:someValuesFrom :Comedy-Humour
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasKidFriendlyRec ;
+                              owl:someValuesFrom :AdultSupervisionRecommended
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasRating ;
+                              owl:someValuesFrom :Rated-PG-13
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasCountryOfOrigin ;
+                              owl:hasValue :America
+                            ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#BreakingDawn:Part1
+:BreakingDawn:Part1 rdf:type owl:Class ;
+                    rdfs:subClassOf :TwilightSaga ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasActor ;
+                                      owl:someValuesFrom :RobertPattinson
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasActress ;
+                                      owl:someValuesFrom :KristenStewert
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasDirector ;
+                                      owl:someValuesFrom :DavidSlade
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasGenre ;
+                                      owl:someValuesFrom :Romance-Drama
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasKidFriendlyRec ;
+                                      owl:someValuesFrom :AdultSupervisionRecommended
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasRating ;
+                                      owl:someValuesFrom :Rated-PG-13
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasCountryOfOrigin ;
+                                      owl:hasValue :America
+                                    ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#BreakingDawn:Part2
+:BreakingDawn:Part2 rdf:type owl:Class ;
+                    rdfs:subClassOf :TwilightSaga ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasActor ;
+                                      owl:someValuesFrom :RobertPattinson
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasActress ;
+                                      owl:someValuesFrom :KristenStewert
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasDirector ;
+                                      owl:someValuesFrom :DavidSlade
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasGenre ;
+                                      owl:someValuesFrom :Romance-Drama
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasKidFriendlyRec ;
+                                      owl:someValuesFrom :AdultSupervisionRecommended
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasRating ;
+                                      owl:someValuesFrom :Rated-PG-13
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasCountryOfOrigin ;
+                                      owl:hasValue :America
+                                    ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EpisodeI:ThePhantomMenace
+:EpisodeI:ThePhantomMenace rdf:type owl:Class ;
+                           rdfs:subClassOf :StarWarsSaga ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasActor ;
+                                             owl:someValuesFrom :EwanMcGregor
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasActress ;
+                                             owl:someValuesFrom :KieraKnightley
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasDirector ;
+                                             owl:someValuesFrom :GeorgeLucas
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasGenre ;
+                                             owl:someValuesFrom :Action-Scifi
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasKidFriendlyRec ;
+                                             owl:someValuesFrom :KidFriendly
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasRating ;
+                                             owl:someValuesFrom :Rated-PG
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasCountryOfOrigin ;
+                                             owl:hasValue :America
+                                           ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EpisodeII:AttackOfTheClones
+:EpisodeII:AttackOfTheClones rdf:type owl:Class ;
+                             rdfs:subClassOf :StarWarsSaga ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasActor ;
+                                               owl:someValuesFrom :EwanMcGregor
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasDirector ;
+                                               owl:someValuesFrom :GeorgeLucas
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasGenre ;
+                                               owl:someValuesFrom :Action-Scifi
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasKidFriendlyRec ;
+                                               owl:someValuesFrom :KidFriendly
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasRating ;
+                                               owl:someValuesFrom :Rated-PG
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasCountryOfOrigin ;
+                                               owl:hasValue :America
+                                             ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EpisodeIII:RevengeOfTheSith
+:EpisodeIII:RevengeOfTheSith rdf:type owl:Class ;
+                             rdfs:subClassOf :StarWarsSaga ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasActor ;
+                                               owl:someValuesFrom :EwanMcGregor
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasDirector ;
+                                               owl:someValuesFrom :GeorgeLucas
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasGenre ;
+                                               owl:someValuesFrom :Action-Scifi
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasKidFriendlyRec ;
+                                               owl:someValuesFrom :AdultSupervisionRecommended
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasRating ;
+                                               owl:someValuesFrom :Rated-PG-13
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasCountryOfOrigin ;
+                                               owl:hasValue :America
+                                             ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EpisodeIV:ANewHope
+:EpisodeIV:ANewHope rdf:type owl:Class ;
+                    rdfs:subClassOf :StarWarsSaga ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasActress ;
+                                      owl:someValuesFrom :CarrieFisher
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasDirector ;
+                                      owl:someValuesFrom :GeorgeLucas
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasGenre ;
+                                      owl:someValuesFrom :Action-Scifi
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasKidFriendlyRec ;
+                                      owl:someValuesFrom :KidFriendly
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasRating ;
+                                      owl:someValuesFrom :Rated-PG
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasCountryOfOrigin ;
+                                      owl:hasValue :America
+                                    ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EpisodeIX:TheRiseOfSkywalker
+:EpisodeIX:TheRiseOfSkywalker rdf:type owl:Class ;
+                              rdfs:subClassOf :StarWarsSaga ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasActor ;
+                                                owl:someValuesFrom :AdamDriver
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasDirector ;
+                                                owl:someValuesFrom :GeorgeLucas
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasGenre ;
+                                                owl:someValuesFrom :Action-Scifi
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasKidFriendlyRec ;
+                                                owl:someValuesFrom :AdultSupervisionRecommended
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasRating ;
+                                                owl:someValuesFrom :Rated-PG-13
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasCountryOfOrigin ;
+                                                owl:hasValue :America
+                                              ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EpisodeV:TheEmpireStrikesBack
+:EpisodeV:TheEmpireStrikesBack rdf:type owl:Class ;
+                               rdfs:subClassOf :StarWarsSaga ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasActress ;
+                                                 owl:someValuesFrom :CarrieFisher
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasDirector ;
+                                                 owl:someValuesFrom :GeorgeLucas
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasGenre ;
+                                                 owl:someValuesFrom :Action-Scifi
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasKidFriendlyRec ;
+                                                 owl:someValuesFrom :KidFriendly
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasRating ;
+                                                 owl:someValuesFrom :Rated-PG
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasCountryOfOrigin ;
+                                                 owl:hasValue :America
+                                               ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EpisodeVI:ReturnOfTheJedi
+:EpisodeVI:ReturnOfTheJedi rdf:type owl:Class ;
+                           rdfs:subClassOf :StarWarsSaga ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasActress ;
+                                             owl:someValuesFrom :CarrieFisher
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasDirector ;
+                                             owl:someValuesFrom :GeorgeLucas
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasGenre ;
+                                             owl:someValuesFrom :Action-Scifi
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasKidFriendlyRec ;
+                                             owl:someValuesFrom :KidFriendly
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasRating ;
+                                             owl:someValuesFrom :Rated-PG
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasCountryOfOrigin ;
+                                             owl:hasValue :America
+                                           ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EpisodeVII:TheForceAwakens
+:EpisodeVII:TheForceAwakens rdf:type owl:Class ;
+                            rdfs:subClassOf :StarWarsSaga ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasActor ;
+                                              owl:someValuesFrom :AdamDriver
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasDirector ;
+                                              owl:someValuesFrom :GeorgeLucas
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasGenre ;
+                                              owl:someValuesFrom :Action-Scifi
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasKidFriendlyRec ;
+                                              owl:someValuesFrom :AdultSupervisionRecommended
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasRating ;
+                                              owl:someValuesFrom :Rated-PG-13
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasCountryOfOrigin ;
+                                              owl:hasValue :America
+                                            ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#EpisodeVIII:TheLastJedi
+:EpisodeVIII:TheLastJedi rdf:type owl:Class ;
+                         rdfs:subClassOf :StarWarsSaga ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasActor ;
+                                           owl:someValuesFrom :AdamDriver
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasActress ;
+                                           owl:someValuesFrom :CarrieFisher
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasDirector ;
+                                           owl:someValuesFrom :GeorgeLucas
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasGenre ;
+                                           owl:someValuesFrom :Action-Scifi
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasKidFriendlyRec ;
+                                           owl:someValuesFrom :AdultSupervisionRecommended
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasRating ;
+                                           owl:someValuesFrom :Rated-PG-13
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasCountryOfOrigin ;
+                                           owl:hasValue :America
+                                         ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HarryPotterAndTheDeathlyHallows:Part1
+:HarryPotterAndTheDeathlyHallows:Part1 rdf:type owl:Class ;
+                                       rdfs:subClassOf :HarryPotterSaga ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasActor ;
+                                                         owl:someValuesFrom :DanielRadcliffe
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasActress ;
+                                                         owl:someValuesFrom :EmmaWatson
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasDirector ;
+                                                         owl:someValuesFrom :ChrisColumbus
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasGenre ;
+                                                         owl:someValuesFrom :Adventure-Comic
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasGenre ;
+                                                         owl:someValuesFrom :Animated-Fantasy
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasKidFriendlyRec ;
+                                                         owl:someValuesFrom :AdultSupervisionRecommended
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasRating ;
+                                                         owl:someValuesFrom :Rated-PG-13
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasCountryOfOrigin ;
+                                                         owl:hasValue :England
+                                                       ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#HarryPotterAndTheDeathlyHallows:Part2
+:HarryPotterAndTheDeathlyHallows:Part2 rdf:type owl:Class ;
+                                       rdfs:subClassOf :HarryPotterSaga ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasActor ;
+                                                         owl:someValuesFrom :DanielRadcliffe
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasActress ;
+                                                         owl:someValuesFrom :EmmaWatson
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasDirector ;
+                                                         owl:someValuesFrom :ChrisColumbus
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasGenre ;
+                                                         owl:someValuesFrom :Adventure-Comic
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasGenre ;
+                                                         owl:someValuesFrom :Animated-Fantasy
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasKidFriendlyRec ;
+                                                         owl:someValuesFrom :AdultSupervisionRecommended
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasRating ;
+                                                         owl:someValuesFrom :Rated-PG-13
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasCountryOfOrigin ;
+                                                         owl:hasValue :England
+                                                       ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheTerminator2:JudgementDay
+:TheTerminator2:JudgementDay rdf:type owl:Class ;
+                             rdfs:subClassOf :TheTerminatorSaga ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasActor ;
+                                               owl:someValuesFrom :ArnoldSchwarzenegger
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasActress ;
+                                               owl:someValuesFrom :LindaHamilton
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasDirector ;
+                                               owl:someValuesFrom :JamesCameron
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasGenre ;
+                                               owl:someValuesFrom :Action-Scifi
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasKidFriendlyRec ;
+                                               owl:someValuesFrom :AdultSupervisionRequired
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasRating ;
+                                               owl:someValuesFrom :Rated-R
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasCountryOfOrigin ;
+                                               owl:hasValue :America
+                                             ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#TheTerminator3:RiseOfTheMachines
+:TheTerminator3:RiseOfTheMachines rdf:type owl:Class ;
+                                  rdfs:subClassOf :TheTerminatorSaga ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasActor ;
+                                                    owl:someValuesFrom :ArnoldSchwarzenegger
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasDirector ;
+                                                    owl:someValuesFrom :JamesCameron
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasGenre ;
+                                                    owl:someValuesFrom :Action-Scifi
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasKidFriendlyRec ;
+                                                    owl:someValuesFrom :AdultSupervisionRequired
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasRating ;
+                                                    owl:someValuesFrom :Rated-R
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasCountryOfOrigin ;
+                                                    owl:hasValue :America
+                                                  ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Transformers:AgeOfExtinction
+:Transformers:AgeOfExtinction rdf:type owl:Class ;
+                              rdfs:subClassOf :TransformersSaga ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasActor ;
+                                                owl:someValuesFrom :MarkWahlberg
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasActress ;
+                                                owl:someValuesFrom :NicolaPeltz
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasDirector ;
+                                                owl:someValuesFrom :MichaelBay
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasGenre ;
+                                                owl:someValuesFrom :Action-Scifi
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasKidFriendlyRec ;
+                                                owl:someValuesFrom :AdultSupervisionRecommended
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasRating ;
+                                                owl:someValuesFrom :Rated-PG-13
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasCountryOfOrigin ;
+                                                owl:hasValue :America
+                                              ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Transformers:DarkOfTheMoon
+:Transformers:DarkOfTheMoon rdf:type owl:Class ;
+                            rdfs:subClassOf :TransformersSaga ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasActor ;
+                                              owl:someValuesFrom :ShiaLaBeouf
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasActress ;
+                                              owl:someValuesFrom :RosieHuntington
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasDirector ;
+                                              owl:someValuesFrom :MichaelBay
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasGenre ;
+                                              owl:someValuesFrom :Action-Scifi
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasKidFriendlyRec ;
+                                              owl:someValuesFrom :AdultSupervisionRecommended
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasRating ;
+                                              owl:someValuesFrom :Rated-PG-13
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasCountryOfOrigin ;
+                                              owl:hasValue :America
+                                            ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Transformers:RevengeOfTheFallen
+:Transformers:RevengeOfTheFallen rdf:type owl:Class ;
+                                 rdfs:subClassOf :TransformersSaga ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasActor ;
+                                                   owl:someValuesFrom :ShiaLaBeouf
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasActress ;
+                                                   owl:someValuesFrom :MeganFox
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasDirector ;
+                                                   owl:someValuesFrom :MichaelBay
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasGenre ;
+                                                   owl:someValuesFrom :Action-Scifi
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasKidFriendlyRec ;
+                                                   owl:someValuesFrom :AdultSupervisionRecommended
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasRating ;
+                                                   owl:someValuesFrom :Rated-PG-13
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasCountryOfOrigin ;
+                                                   owl:hasValue :America
+                                                 ] .
+
+
+###  http://www.movies.com/ontologies/movies.owl#Transformers:TheLastKnight
+:Transformers:TheLastKnight rdf:type owl:Class ;
+                            rdfs:subClassOf :TransformersSaga ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasActor ;
+                                              owl:someValuesFrom :MarkWahlberg
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasDirector ;
+                                              owl:someValuesFrom :MichaelBay
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasGenre ;
+                                              owl:someValuesFrom :Action-Scifi
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasKidFriendlyRec ;
+                                              owl:someValuesFrom :AdultSupervisionRecommended
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasRating ;
+                                              owl:someValuesFrom :Rated-PG-13
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasCountryOfOrigin ;
+                                              owl:hasValue :America
+                                            ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.movies.com/ontologies/movies.owl#America
+:America rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.movies.com/ontologies/movies.owl#England
+:England rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Action-Adventure
+                :Action-Comedy
+                :Action-MartialArts
+                :Action-Scifi
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ActionGenre
+                :AdventureGenre
+                :AnimatedGenre
+                :ComedyGenre
+                :HorrorGenre
+                :MysteryGenre
+                :RomanceGenre
+                :Sci-FiGenre
+                :ThrillerGenre
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AdamDriver
+                :ArnoldSchwarzenegger
+                :BenStiller
+                :BillHader
+                :BillyZane
+                :ColinFarrell
+                :DanielRadcliffe
+                :DannyDeVito
+                :DannyMcBride
+                :DavidCarradine
+                :ElijahWood
+                :EwanMcGregor
+                :IceCube
+                :JamesFranco
+                :JaredHarris
+                :JasonStatham
+                :JohnCena
+                :JohnTravolta
+                :JohnnyDepp
+                :KurtRussel
+                :LeonardoDiCaprio
+                :MarkWahlberg
+                :MartinLawrence
+                :OwenWilson
+                :RobertPattinson
+                :SamuelJackson
+                :SethRogan
+                :ShiaLaBeouf
+                :TomSavini
+                :WilfordBrimley
+                :WillSmith
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Adventure-Action
+                :Adventure-Comic
+                :Adventure-Scifi
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Aladdin
+                :AliceInWonderland
+                :CharlieAndTheChocolateFactory
+                :DawnOfTheDead
+                :Dumbo
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AlanRickman
+                :AlbertBrooks
+                :DannyElfman
+                :JoshGad
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AmandaPlummer
+                :AmberHeard
+                :AmySchumer
+                :AnnaSophiaRobb
+                :AnneHathaway
+                :BrieLarson
+                :CarrieFisher
+                :ChristineTaylor
+                :DaniellePanabaker
+                :EmmaWatson
+                :EvaGreen
+                :GloriaStuart
+                :HelenaBonhamCarter
+                :JoannaCassidy
+                :JuliaWinter
+                :KateWinslet
+                :KieraKnightley
+                :KristenStewert
+                :LindaHamilton
+                :LucyLiu
+                :MamieGummer
+                :MaryElizabethWinstead
+                :MeganFox
+                :MilaJovovich
+                :NicoParker
+                :NicolaPeltz
+                :PenelopeCruz
+                :RachaelTaylor
+                :RosieHuntington
+                :RosiePerez
+                :SarahPolley
+                :SelaWard
+                :TeaLeoni
+                :UmaThurman
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Animated-Adventure
+                :Animated-Animation
+                :Animated-Childrens-Film
+                :Animated-Fantasy
+                :Animated-Literary
+                :Animated-Musical
+                :Animated-Romance
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AtWorldsEnd
+                :DeadMansChest
+                :DeadMenTellNoTales
+                :OnStrangerTides
+                :TheCurseOfTheBlackPearl
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BadBoys
+                :CorpseBride
+                :FindingNemo
+                :Frozen
+                :GhostOfMars
+                :KillBill1
+                :PineappleExpress
+                :PulpFiction
+                :TheNightmareBeforeChristmas
+                :TheThing
+                :TheWard
+                :Titanic
+                :Trainwreck
+                :Zoolander
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :CatherineOhara
+                :DebiDurst
+                :EllenDegeneres
+                :EmilyWatson
+                :HelenaBonhamCarter
+                :IdinaMenzel
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Comedy-Buddy
+                :Comedy-Dark
+                :Comedy-Humour
+                :Comedy-Romance
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Eclipse
+                :NewMoon
+                :BreakingDawn:Part1
+                :BreakingDawn:Part2
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :FindingDory
+                :FrozenII
+                :KillBill2
+                :Zoolander2
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :HarryPotterAndTheChamberOfSecrets
+                :HarryPotterAndTheGobletOfFire
+                :HarryPotterAndTheHalfBloodPrince
+                :HarryPotterAndTheOrderOfThePhoenix
+                :HarryPotterAndThePhilosophersStone
+                :HarryPotterAndThePrisonerOfAzkaban
+                :HarryPotterAndTheDeathlyHallows:Part1
+                :HarryPotterAndTheDeathlyHallows:Part2
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :HarryPotterSaga
+                :PiratesOfTheCaribbeanSaga
+                :StarWarsSaga
+                :TheTerminatorSaga
+                :TransformersSaga
+                :TwilightSaga
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Horror-Action
+                :Horror-Noir
+                :Horror-Psychological
+                :Horror-Scifi
+                :Horror-Thriller
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Movie
+                :MovieActors
+                :MovieActresses
+                :MovieDirectors
+                :MovieGenres
+                :MovieRating
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Originals
+                :Remake
+                :Sagas
+                :Sequels
+                :Spinoffs
+                :Trilogies
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Rated-E
+                :Rated-G
+                :Rated-PG
+                :Rated-PG-13
+                :Rated-R
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Romance-Comedy
+                :Romance-Disaster
+                :Romance-Drama
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :TerminaterSalvation
+                :TerminatorDarkFate
+                :TerminatorGenisys
+                :TheTerminator1984
+                :TheTerminator2:JudgementDay
+                :TheTerminator3:RiseOfTheMachines
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :TheFellowShipOfTheRing
+                :TheReturnOfTheKing
+                :TheTwoTowers
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Transformers
+                :Transformers:AgeOfExtinction
+                :Transformers:DarkOfTheMoon
+                :Transformers:RevengeOfTheFallen
+                :Transformers:TheLastKnight
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :EpisodeI:ThePhantomMenace
+                :EpisodeII:AttackOfTheClones
+                :EpisodeIII:RevengeOfTheSith
+                :EpisodeIV:ANewHope
+                :EpisodeIX:TheRiseOfSkywalker
+                :EpisodeV:TheEmpireStrikesBack
+                :EpisodeVI:ReturnOfTheJedi
+                :EpisodeVII:TheForceAwakens
+                :EpisodeVIII:TheLastJedi
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
